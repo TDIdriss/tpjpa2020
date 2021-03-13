@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 mvn dependency:copy-dependencies
 mkdir data 2> /dev/null
 cd data

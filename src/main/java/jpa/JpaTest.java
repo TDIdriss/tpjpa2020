@@ -1,5 +1,8 @@
 package jpa;
 
+import jpa.dao.FicheDao;
+import jpa.domain.Fiche;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
@@ -15,8 +18,11 @@ public class JpaTest {
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 
+		FicheDao ficheDao1 = new FicheDao(manager);
+		Fiche fi = new Fiche();
 
 		try {
+			ficheDao1.createFiche(fi);
 
 		} catch (Exception e) {
 			e.printStackTrace();
