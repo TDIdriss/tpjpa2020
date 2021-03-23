@@ -24,6 +24,11 @@ public class Section {
         fiche2 = new ArrayList<>();
     }
 
+    public Section(String section){
+        this.section= section;
+        this.fiche2= new ArrayList<>();
+    }
+
     public void setId(long id) {
         this.id = id;
     }

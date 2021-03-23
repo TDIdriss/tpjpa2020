@@ -24,6 +24,12 @@ public class User {
         fiche3= new ArrayList<>();
     }
 
+    public User(String nom, String prenom ){
+        this.nom=nom;
+        this.prenom = prenom;
+        this.fiche3 = new ArrayList<>();
+    }
+
     public void setId(long id) {
         this.id = id;
     }

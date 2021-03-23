@@ -28,6 +28,11 @@ public class Tags {
         fiche1 = new ArrayList<>();
     }
 
+    public Tags(String tag){
+        this.fiche1 = new ArrayList<>();
+        this.tag=tag;
+    }
+
     public void setId(long id) {
         this.id = id;
     }

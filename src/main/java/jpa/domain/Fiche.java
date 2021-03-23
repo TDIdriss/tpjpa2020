@@ -1,5 +1,7 @@
 package jpa.domain;
 
+import net.bytebuddy.asm.Advice;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,16 @@ public class Fiche {
 
     public Fiche(){
         tags = new ArrayList<Tags>();
+    }
+
+    public Fiche(String libelle, String lieu, String date, String note, String temps, String url, List<Tags> tags){
+        this.libelle = libelle;
+        this.lieu = lieu;
+        this.date = date;
+        this.note = note;
+        this.temps = temps;
+        this.url = url;
+        this.tags = tags;
     }
 
     public void setId(Long id) {
