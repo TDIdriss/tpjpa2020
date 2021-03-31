@@ -8,28 +8,26 @@ import java.util.List;
 public class Section {
 
 
-    private long id ;
+    private Long id ;
 
     private String section;
 
-    private List<Fiche> fiche2 ;
+    private List<Fiche> ficheS = new ArrayList<>() ;
 
     @Id
     @GeneratedValue
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     public Section(){
-        fiche2 = new ArrayList<>();
     }
 
     public Section(String section){
         this.section= section;
-        this.fiche2= new ArrayList<>();
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -41,13 +39,13 @@ public class Section {
         this.section = section;
     }
 
-    @OneToMany(mappedBy = "sect", cascade = CascadeType.PERSIST)
-    public List<Fiche> getFiche2() {
-        return fiche2;
+    @OneToMany(mappedBy = "sectionF", cascade = CascadeType.PERSIST)
+    public List<Fiche> getFicheS() {
+        return ficheS;
     }
 
-    public void setFiche2(List<Fiche> fiche2) {
-        this.fiche2 = fiche2;
+    public void setFicheS(List<Fiche> fiche) {
+        this.ficheS = fiche;
     }
 
 

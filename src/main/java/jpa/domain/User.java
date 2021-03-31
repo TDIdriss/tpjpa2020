@@ -7,30 +7,30 @@ import java.util.List;
 @Entity
 public class User {
 
-    private long id ;
+    private Long id ;
 
     private String nom;
     private String prenom;
 
-    private List<Fiche> fiche3 ;
+    private List<Fiche> ficheU = new ArrayList<>() ;
 
     @Id
     @GeneratedValue
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     public User(){
-        fiche3= new ArrayList<>();
+        super();
     }
 
-    public User(String nom, String prenom ){
+    public User(String nom, String prenom){
         this.nom=nom;
         this.prenom = prenom;
-        this.fiche3 = new ArrayList<>();
+
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -51,12 +51,12 @@ public class User {
     }
 
     @OneToMany(mappedBy = "owner" , cascade = CascadeType.PERSIST)
-    public List<Fiche> getFiche3() {
-        return fiche3;
+    public List<Fiche> getFicheU() {
+        return ficheU;
     }
 
-    public void setFiche3(List<Fiche> fiche) {
-        this.fiche3 = fiche;
+    public void setFicheU(List<Fiche> fiche) {
+        this.ficheU = fiche;
     }
 
 

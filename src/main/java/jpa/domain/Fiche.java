@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Fiche {
 
-    private long id ;
+    private Long id ;
 
     private String libelle;
     private String lieu;
@@ -19,10 +19,10 @@ public class Fiche {
     private String url;
 
 
-    private List<Tags> tags;
+    private List<Tags> tagsF = new ArrayList<>();
 
 
-    private Section sect;
+    private Section sectionF;
 
 
     private User owner;
@@ -35,17 +35,18 @@ public class Fiche {
     }
 
     public Fiche(){
-        tags = new ArrayList<Tags>();
     }
 
-    public Fiche(String libelle, String lieu, String date, String note, String temps, String url, List<Tags> tags){
+    public Fiche(String libelle, String lieu, String date, String note, String temps, String url,Section section, User user, List<Tags> tags){
         this.libelle = libelle;
         this.lieu = lieu;
         this.date = date;
         this.note = note;
         this.temps = temps;
         this.url = url;
-        this.tags = tags;
+        this.tagsF = tags;
+        this.sectionF=section;
+        this.owner=user;
     }
 
     public void setId(Long id) {
@@ -100,22 +101,22 @@ public class Fiche {
         this.url = url;
     }
 
-    @ManyToMany(mappedBy = "fiche1", cascade = CascadeType.PERSIST)
-    public List<Tags> getTags() {
-        return tags;
+    @ManyToMany(mappedBy = "ficheT", cascade = CascadeType.PERSIST)
+    public List<Tags> getTagsF() {
+        return tagsF;
     }
 
-    public void setTags(List<Tags> tags) {
-        this.tags = tags;
+    public void setTagsF(List<Tags> tags) {
+        this.tagsF = tags;
     }
 
     @ManyToOne()
-    public Section getSect() {
-        return sect;
+    public Section getSectionF() {
+        return sectionF;
     }
 
-    public void setSect(Section sect) {
-        this.sect = sect;
+    public void setSectionF(Section sect) {
+        this.sectionF = sect;
     }
 
     @ManyToOne

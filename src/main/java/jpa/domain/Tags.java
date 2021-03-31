@@ -10,30 +10,27 @@ import java.util.List;
 @Entity
 public class Tags {
 
-   private long id ;
+   private Long id ;
 
    private String tag;
 
-
-    private List<Fiche> fiche1 ;
+   private List<Fiche> ficheT = new ArrayList<>();
 
 
     @Id
     @GeneratedValue
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     public Tags(){
-        fiche1 = new ArrayList<>();
     }
 
     public Tags(String tag){
-        this.fiche1 = new ArrayList<>();
         this.tag=tag;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -46,11 +43,11 @@ public class Tags {
     }
 
     @ManyToMany
-    public List<Fiche> getFiche1() {
-        return fiche1;
+    public List<Fiche> getFicheT() {
+        return ficheT;
     }
 
-    public void setFiche1(List<Fiche> fiche1) {
-        this.fiche1 = fiche1;
+    public void setFicheT(List<Fiche> fiche) {
+        this.ficheT = fiche;
     }
 }
